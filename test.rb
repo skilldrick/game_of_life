@@ -38,8 +38,13 @@ class LifeTest < Test::Unit::TestCase
   end
 
   def test_glider
-    glider = [[0,1], [1, 2], [2, 0], [2, 1], [2, 2]]
-    #glider2 = [
+    glider = [[0, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
+    glider2 = [[1, 0], [1, 2], [2, 1], [2, 2], [3, 1]]
+    universe = Universe.new glider
+    universe2 = universe.evolve
+    glider2.each do |cell|
+      assert universe2.life.include? cell
+    end
   end
 
 end
